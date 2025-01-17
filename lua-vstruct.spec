@@ -2,7 +2,7 @@
 %global tag v%{version}
 
 %define lua_version %(lua -e 'print(_VERSION)' | cut -d ' ' -f 2)
-%define lua_pkgdir %{_libdir}/lua/%{lua_version}
+%define lua_pkgdir %{_datadir}/lua/%{lua_version}
 
 Name:      lua-vstruct
 Version:   2.1.1
