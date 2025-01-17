@@ -1,10 +1,14 @@
 %global forgeurl https://github.com/ToxicFrog/vstruct
 %global tag v%{version}
 
+%define lua_version %(lua -e 'print(_VERSION)' | cut -d ' ' -f 2)
+%define lua_pkgdir %{_libdir}/lua/%{lua_version}
+
 Name:      lua-vstruct
 Version:   2.1.1
-Release:   2%{?dist}
+Release:   1
 Summary:   Lua library to manipulate binary data
+Group:     Development/Other
 License:   MIT
 URL:       %{forgeurl}
 
@@ -51,10 +55,3 @@ print(vstruct._VERSION)'
 %doc README.md
 %doc CHANGES
 %{lua_pkgdir}/vstruct/
-
-%changelog
-* Thu Jan 19 2023 Fedora Release Engineering <releng@fedoraproject.org> - 2.1.1-2
-- Rebuilt for https://fedoraproject.org/wiki/Fedora_38_Mass_Rebuild
-
-* Wed Nov 16 2022 Jonny Heggheim <hegjon@gmail.com> - 2.1.1-1
-- Initial package
